@@ -1,0 +1,76 @@
+<link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+<script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+  jQuery( document ).ready(function() {
+$('.eventitem-backlink').attr('href', '/program/curriculum-calendar').html('BACK TO CURRICULUM CALENDAR');
+$.getJSON( "/curriculum-calendar?format=json&callback=?", function( data ) {
+  var items_previous = [];
+  var items_upcoming = [];
+  var items = [];
+console.log(data);
+  $.each( data.past, function( key, val ) {
+    var module_url = val["fullUrl"];
+    var module_title = val["title"];
+    var start_date_string = moment(val["startDate"]).format("MM/DD/YY");
+    var end_date_string = moment(val["endDate"]).format("MM/DD/YY");
+    var start_time_string = moment(val["startDate"]).format("hh:mm A");
+    var end_time_string = moment(val["startDate"]).format("hh:mm A");
+    var date_time_string = start_date_string + " @ " + start_time_string;
+
+    items.push( "<li class='in-view past-item' id='past_" + key + "'><div><time><a href='"+module_url+"'>"+module_title+"</a></time><time>"+date_time_string+"</time>" + "<a href='"+module_url+"'>"+ val["body"]+"</a>" + "</div></li>" );
+  });
+    
+  $.each( data.upcoming, function( key, val ) {
+    var module_url = val["fullUrl"];
+    var module_title = val["title"];
+    var start_date_string = moment(val["startDate"]).format("MM/DD/YY");
+    var end_date_string = moment(val["endDate"]).format("MM/DD/YY");
+    var start_time_string = moment(val["startDate"]).format("hh:mm A");
+    var end_time_string = moment(val["startDate"]).format("hh:mm A");
+    var date_time_string = start_date_string + " @ " + start_time_string;
+    items.push( "<li class='in-view upcoming-item' id='upcoming_" + key + "'><div><time><a href='"+module_url+"'>"+module_title+"</a></time><time>"+date_time_string+"</time>" + "<a href='"+module_url+"'>"+ val["body"]+"</a>" + "</div></li>" );
+  });
+ 
+ 
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( ".content-wrapper" );
+});
+
+'use strict';
+
+  // define variables
+  var items_timeline = document.querySelectorAll(".content-wrapper li");
+
+  // check if an element is in viewport
+  // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+  function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  function callbackFunc() {
+    for (var i = 0; i < items_timeline.length; i++) {
+      if (isElementInViewport(items_timeline[i])) {
+        items_timeline[i].classList.add("in-view");
+      }
+    }
+  }
+
+  // listen for events
+  window.addEventListener("load", callbackFunc);
+  window.addEventListener("resize", callbackFunc);
+  window.addEventListener("scroll", callbackFunc);
+    
+
+});
+  
+ </script>

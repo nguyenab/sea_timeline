@@ -1,0 +1,14 @@
+a.summary-excerpt:link { color:#d48300; text-decoration:none; font-weight:normal; }
+a.summary-excerpt:visited { color: #e0ad5a; text-decoration:none; font-weight:normal; }
+a.summary-excerpt:hover { color: #e0ad5a; text-decoration:underline; font-weight:normal; }
+a.summary-excerpt:active { color: #e0ad5a; text-decoration:none; font-weight:normal; }
+
+#involved {
+	background-color:#f7f7f7
+}
+#volunteers {
+	background-color:#f7f7f7
+}
+#how-to-apply {
+	background-color:#f7f7f7
+}

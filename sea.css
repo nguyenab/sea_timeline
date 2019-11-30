@@ -1,0 +1,220 @@
+*,
+*::before,
+*::after {
+/*  margin: 0;
+  padding: 0;
+  box-sizing: border-box;*/
+}
+
+body {
+/*  font: normal 16px/1.5 "Helvetica Neue", sans-serif;
+  background: #456990;
+  color: #fff;
+  overflow-x: hidden;
+  padding-bottom: 50px;*/
+}  /* INTRO SECTION
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/*BEGIN CUSTOM STYLING FOR TIMELINE*/
+#collection-5de232a4e6b0e7013a7d2185 .sqs-block-markdown{
+  padding: 0 !important;
+  width: 100% !important;
+}
+#collection-5de232a4e6b0e7013a7d2185 .sqs-block-markdown .sqs-block-content *:last-child{
+  margin-top:0;
+}
+.intro {
+  background: #D38400;
+  padding: 100px 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+section .intro h1 {
+  font-size: 3.5rem;
+  font-family: 'Fjalla One', sans-serif !important;
+  color: white !important;
+}
+
+
+/* content-wrapper
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.content-wrapper > ul {
+  background: #00305C;
+  padding: 50px 0;
+}
+
+.content-wrapper > ul > li {
+  list-style-type: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 50px;
+  background: #fff;
+}
+
+.content-wrapper > ul > li.past-item{
+  opacity: 0.5;
+}
+
+.content-wrapper > ul > li::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.content-wrapper ul > li > div {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 15px;
+  background: #D38400;
+}
+
+.content-wrapper ul > li > div::before {
+  content: '';
+  position: absolute;
+  bottom: 7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.content-wrapper ul > li:nth-child(odd) > div {
+  left: 45px;
+}
+
+.content-wrapper ul > li:nth-child(odd) > div::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #D38400 transparent transparent;
+}
+
+.content-wrapper ul > li:nth-child(even) > div {
+  left: -463px;
+}
+
+.content-wrapper ul > li:nth-child(even) > div::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #D38400;
+}
+
+.content-wrapper time {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color:white;
+}
+
+.content-wrapper time a{
+  color:white !important;
+  font-family: 'Fjalla One', sans-serif !important;
+}
+
+.my-new-list > li > div > a li{
+
+}
+
+
+/* EFFECTS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.content-wrapper > ul > li::after {
+  transition: background .5s ease-in-out;
+}
+
+.content-wrapper > ul > li.in-view::after {
+  background: #D38400;
+}
+
+.content-wrapper > ul > li > div {
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+}
+
+.content-wrapper > ul > li:nth-child(odd) > div {
+  transform: translate3d(200px, 0, 0);
+}
+
+.content-wrapper > ul > li:nth-child(even) > div {
+  transform: translate3d(-200px, 0, 0);
+}
+
+.content-wrapper > ul > li.in-view > div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+  transition: all .2s ease-in-out;
+}
+
+.content-wrapper > ul > li.in-view > div:hover {
+  transform: scale(1.05);
+}
+
+.content-wrapper > ul > li.in-view > div > a{
+  color:white;
+  font-family: 'Libre Franklin', sans-serif;
+
+}
+
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media screen and (max-width: 900px) {
+  .content-wrapper > ul > li div {
+    width: 250px;
+  }
+  .content-wrapper > ul > li:nth-child(even) div {
+    left: -289px;
+    /*250+45-6*/
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content-wrapper > ul > li {
+    margin-left: 20px;
+  }
+  .content-wrapper > ul > li div {
+    /*width: calc(100vw - 91px);*/
+  }
+  .content-wrapper > ul > li:nth-child(even) > div {
+    left: 45px;
+  }
+  .content-wrapper > ul > li:nth-child(even) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #D38400 transparent transparent;
+  }
+}
+
+
+/* GENERAL STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.flyoutitemlist.flyoutitemlist--iseventscollection{
+  background-color: #d38400;
+}
+
+.flyoutitem * {
+  color: white !important;
+}
+
+.flyoutitem-title a {
+  color: white !important;
+}
