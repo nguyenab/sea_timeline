@@ -19,7 +19,7 @@ console.log(data);
     var end_time_string = moment(val["endDate"]).format("hh:mm A");
     var date_time_string = start_date_string + " @ " + start_time_string +" - "+end_time_string;
 
-    items.push( "<li class='in-view past-item' id='past_" + key + "'><div><time><a href='"+module_url+"'>"+module_title+"</a></time><time class='date_time'>"+date_time_string+"</time>" + "<a href='"+module_url+"'></a>" + "</div></li>" );
+    items.push( "<li class='in-view past-item' id='past_" + key + "'><div><time><a href='"+module_url+"'>"+module_title+"</a></time><a href='"+module_url+"'><time class='date_time'>"+date_time_string+"</time>" + "</a>" + "</div></li>" );
   });
     
   $.each( data.upcoming, function( key, val ) {
@@ -30,7 +30,7 @@ console.log(data);
     var start_time_string = moment(val["startDate"]).format("hh:mm A");
     var end_time_string = moment(val["endDate"]).format("hh:mm A");
     var date_time_string = start_date_string + " @ " + start_time_string +" - "+end_time_string;
-    items.push( "<li class='in-view upcoming-item' id='upcoming_" + key + "'><div><time><a href='"+module_url+"'>"+module_title+"</a></time><time class='date_time'>"+date_time_string+"</time>" + "<a href='"+module_url+"'></a>" + "</div></li>" );
+    items.push( "<li class='in-view upcoming-item' id='upcoming_" + key + "'><div><time><a href='"+module_url+"'>"+module_title+"</a></time><a href='"+module_url+"'><time class='date_time'>"+date_time_string+"</time>" + "</a>" + "</div></li>" );
   });
  
  
