@@ -18,10 +18,15 @@ console.log(data);
     var start_time_string = moment(val["startDate"]).format("hh:mm A");
     var end_time_string = moment(val["endDate"]).format("hh:mm A");
     var date_time_string = start_date_string + " @ " + start_time_string +" - "+end_time_string;
+    var this_year = parseInt(moment().format('YYYY').valueOf());
+    var start_date_year = parseInt(moment(val['startDate']).format('YYYY'));
     if (jQuery.inArray("All-Day", val["tags"]) !== -1){
       date_time_string = start_date_string;
     }
-    items.push( "<li class='in-view past-item' id='past_" + key + "'><div><time><a href='"+module_url+"'>"+module_title+"</a></time><a href='"+module_url+"'><time class='date_time'>"+date_time_string+"</time>" + "</a>" + "</div></li>" );
+    if (start_date_year >= this_year) {
+      items.push( "<li class='in-view past-item' id='past_" + key + "'><div><time><a href='"+module_url+"'>"+module_title+"</a></time><a href='"+module_url+"'><time class='date_time'>"+date_time_string+"</time>" + "</a>" + "</div></li>" );
+    }
+    
   });
     
   $.each( data.upcoming, function( key, val ) {
